@@ -49,7 +49,7 @@ export default async function createQuestionCollection() {
   ]);
   console.log("Question Attribute Created");
 
-  //create indexes
+  //create indexes but giving error
   /*
   await Promise.all([
     databases.createIndex(
