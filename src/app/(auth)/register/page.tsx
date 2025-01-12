@@ -11,6 +11,7 @@ function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    //collect data
     const formData = new FormData(e.currentTarget);
     const firstname = formData.get("firstname") as string;
     const lastname = formData.get("lastname") as string;
@@ -18,6 +19,7 @@ function RegisterPage() {
     const password = formData.get("password") as string;
     const confirmPassword = formData.get("confirmPassword") as string;
 
+    //validation
     if (!firstname || !lastname || !email || !password || !confirmPassword) {
       setError(() => "Please fill in all fields");
       return;
@@ -32,6 +34,7 @@ function RegisterPage() {
     setIsLoading(() => true);
     setError(() => "");
 
+    //register -> store
     const response = await createAccount(
       `${firstname} ${lastname}`,
       email.toString(),
